@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">ShopWorld</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Categories</a>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="showSubCategories('electronics-sub')">Electronics</a>
+                        <a href="#" onclick="showSubCategories('mens-fashion-sub')">Men's Fashion</a>
+                        <a href="#" onclick="showSubCategories('home-appliances-sub')">Home Appliances</a>
+                        <a href="#" onclick="showSubCategories('sports-sub')">Sports & Outdoors</a>
+                    </div>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#cart" class="cart-btn">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Subcategories section (hidden initially) -->
+    <section class="sub-categories" id="electronics-sub" style="display: none;">
+        <h3>Electronics Subcategories</h3>
+        <ul>
+            <li><a href="#">Laptops</a></li>
+            <li><a href="#">Smartphones</a></li>
+            <li><a href="#">Cameras</a></li>
+        </ul>
+    </section>
+
+    <section class="sub-categories" id="mens-fashion-sub" style="display: none;">
+        <h3>Men's Fashion Subcategories</h3>
+        <ul>
+            <li><a href="#">Shirts</a></li>
+            <li><a href="#">Trousers</a></li>
+            <li><a href="#">Footwear</a></li>
+        </ul>
+    </section>
+
+    <section class="sub-categories" id="home-appliances-sub" style="display: none;">
+        <h3>Home Appliances Subcategories</h3>
+        <ul>
+            <li><a href="#">Refrigerators</a></li>
+            <li><a href="#">Washing Machines</a></li>
+            <li><a href="#">Microwaves</a></li>
+        </ul>
+    </section>
+
+    <section class="sub-categories" id="sports-sub" style="display: none;">
+        <h3>Sports & Outdoors Subcategories</h3>
+        <ul>
+            <li><a href="#">Fitness Equipment</a></li>
+            <li><a href="#">Outdoor Gear</a></li>
+            <li><a href="#">Sportswear</a></li>
+        </ul>
+    </section>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <h1>Welcome to ShopWorld</h1>
+        <p>Find the best deals on fashion, electronics, and more!</p>
+        <a href="#products" class="shop-now-btn">Shop World</a>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <h2>Shop by Category</h2>
+        <div class="category">
+            <img src="image5.jpg" alt="Men's Fashion">
+            <p><a href="#" onclick="showSubCategories('mens-fashion-sub')">Men's Fashion</a></p>
+        </div>
+        <div class="category">
+            <img src="image6.jpg" alt="Electronics">
+            <p><a href="#" onclick="showSubCategories('electronics-sub')">Electronics</a></p>
+        </div>
+        <div class="category">
+            <img src="image7.jpg" alt="Home Appliances">
+            <p><a href="#" onclick="showSubCategories('home-appliances-sub')">Home Appliances</a></p>
+        </div>
+        <div class="category">
+            <img src="image8.jpg" alt="Sports & Outdoors">
+            <p><a href="#" onclick="showSubCategories('sports-sub')">Sports & Outdoors</a></p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <h2>Featured Products</h2>
+        <div class="product">
+            <img src="image4.jpg" alt="Shirt">
+            <p>Men's Casual Shirt - ₹1,499</p>
+            <button onclick="addToCart('Men\'s Casual Shirt', 1499)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="image2.jpg" alt="Trousers">
+            <p>Men's Trousers - ₹999</p>
+            <button onclick="addToCart('Men\'s Trousers', 999)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="image1.jpg" alt="Headphones">
+            <p>Wireless Headphones - ₹3,499</p>
+            <button onclick="addToCart('Wireless Headphones', 3499)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="image3.jpg" alt="Smartphone">
+            <p>Smartphone - ₹15,999</p>
+            <button onclick="addToCart('Smartphone', 15999)">Add to Cart</button>
+        </div>
+    </section>
+
+    <!-- Notification for adding to cart -->
+    <div id="cart-notification" class="notification" style="display: none;">
+        Product added to the cart!
+    </div>
+
+    <footer>
+        <p>&copy; 2024 ShopNow. All rights reserved.</p>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <p>Total: ₹<span id="cart-total">0</span></p>
+            <button onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
